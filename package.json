@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-baidu-location",
+  "version": "0.0.1",
+  "description": "Cordova Baidu location plugin",
+  "cordova": {
+    "id": "cordova-plugin-baidu-location",
+    "platforms": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happy2discover/cordova-plugin-baidu-location.git"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "happy2discover",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/happy2discover/cordova-plugin-baidu-location/issues"
+  },
+  "homepage": "https://github.com/happy2discover/cordova-plugin-baidu-location#readme"
+}
