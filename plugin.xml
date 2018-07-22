@@ -1,7 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-baidu-location" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-baidu-location</name>
-    <js-module name="cordova-plugin-baidu-location" src="www/cordova-plugin-baidu-location.js">
-        <clobbers target="cordova.plugins.cordova-plugin-baidu-location" />
+    <js-module src="www/cordova-plugin-baidu-location.js" name="baidulocation">
+        <clobbers target="window.BaiduLocation" />
     </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BaiduLocation">
+                <param name="android-package" value="com.happy2discover.cordova.plugin.BaiduLocation"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/BaiduLocation.java" target-dir="src/com/happy2discover/cordova/plugin" />
+    </platform>
 </plugin>

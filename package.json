@@ -11,7 +11,8 @@
     "url": "git+https://github.com/happy2discover/cordova-plugin-baidu-location.git"
   },
   "keywords": [
-    "ecosystem:cordova"
+    "ecosystem:cordova",
+    "cordova-android"
   ],
   "author": "happy2discover",
   "license": "MIT",
