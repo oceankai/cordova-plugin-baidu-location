@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-baidu-location",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Cordova Baidu location plugin",
   "cordova": {
     "id": "cordova-plugin-baidu-location",
