@@ -1,72 +1,73 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin
-    id="cordova-plugin-baidu-location"
-    version="0.1.1"
-    xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cordova-plugin-baidu-location</name>
-    <js-module src="www/cordova-plugin-baidu-location.js" name="baidulocation">
-        <clobbers target="window.BaiduLocation" />
-    </js-module>
+<plugin id="cordova-plugin-baidu-location" version="0.1.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>cordova-plugin-baidu-location</name>
+  <js-module name="BaiduLocation" src="www/cordova-plugin-baidu-location.js">
+    <clobbers target="window.BaiduLocation" />
+  </js-module>
+  <preference default="" name="AK_ANDROID" />
+  <preference default="" name="IOS_KEY" />
 
-    <preference name="AK_ANDROID" default=""/>
+  <platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="BaiduLocation">
+        <param name="android-package" value="com.happy2discover.cordova.plugin.BaiduLocation" />
+      </feature>
+    </config-file>
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+      <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="$AK_ANDROID"></meta-data>
+      <service android:enabled="true" android:name="com.baidu.location.f" android:process=":remote"></service>
+    </config-file>
+    <config-file parent="/*" target="AndroidManifest.xml">
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    </config-file>
+    <source-file src="src/android/BaiduLocation.java" target-dir="src/com/happy2discover/cordova/plugin" />
+    <source-file src="src/android/libs/arm64-v8a/libindoor.so" target-dir="libs/arm64-v8a" />
+    <source-file src="src/android/libs/arm64-v8a/liblocSDK7b.so" target-dir="libs/arm64-v8a" />
+    <source-file src="src/android/libs/armeabi/libindoor.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/libs/armeabi/liblocSDK7b.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/libs/armeabi-v7a/libindoor.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="src/android/libs/armeabi-v7a/liblocSDK7b.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="src/android/libs/x86/libindoor.so" target-dir="libs/x86" />
+    <source-file src="src/android/libs/x86/liblocSDK7b.so" target-dir="libs/x86" />
+    <source-file src="src/android/libs/x86_64/libindoor.so" target-dir="libs/x86_64" />
+    <source-file src="src/android/libs/x86_64/liblocSDK7b.so" target-dir="libs/x86_64" />
+    <source-file src="src/android/libs/BaiduLBS_Android.jar" target-dir="libs" />
+  </platform>
 
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="BaiduLocation">
-                <param name="android-package" value="com.happy2discover.cordova.plugin.BaiduLocation"/>
-            </feature>
-        </config-file>
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="BaiduLocation">
+        <param name="ios-package" value="BaiduLocation" />
+      </feature>
+    </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <!-- Android定位SDK自v4.0版本起，需要进行AK鉴权 -->
-            <meta-data
-                android:name="com.baidu.lbsapi.API_KEY"
-                android:value="$AK_ANDROID">
-            </meta-data>
+    <config-file parent="BaiduLocation" target="*-Info.plist">
+      <dict>
+        <key>IOS_KEY</key>
+        <string>$IOS_KEY</string>
+      </dict>
+    </config-file>
 
-            <!-- 使用定位SDK，需在Application标签中声明service组件，每个App拥有自己单独的定位service -->
-            <service
-                android:name="com.baidu.location.f"
-                android:enabled="true"
-                android:process=":remote">
-            </service>
-        </config-file>
+    <header-file src="src/ios/BaiduLocation.h" />
+    <source-file src="src/ios/BaiduLocation.m" />
 
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <!-- 这个权限用于进行网络定位-->
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-            <!-- 这个权限用于访问GPS定位-->
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-            <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
-            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-            <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-            <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-            <!-- 用于读取手机当前的状态-->
-            <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-            <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-            <!-- 访问网络，网络定位需要上网-->
-            <uses-permission android:name="android.permission.INTERNET" />
-            <!-- SD卡读取权限，用户写入离线定位数据-->
-            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
-        </config-file>
+    <framework src="src/ios/libs/BaiduMapAPI_Base.framework" custom="true" />
+    <framework src="src/ios/libs/BaiduMapAPI_Location.framework" custom="true" />
+    <framework src="src/ios/libs/BaiduMapAPI_Search.framework" custom="true" />
+    <source-file src="src/ios/libs/thirdlibs/libcrypto.a" framework="true" />
+    <source-file src="src/ios/libs/thirdlibs/libssl.a" framework="true" />
 
-        <source-file src="src/android/BaiduLocation.java" target-dir="src/com/happy2discover/cordova/plugin" />
-
-        <source-file src="src/android/libs/arm64-v8a/libindoor.so" target-dir="libs/arm64-v8a" />
-        <source-file src="src/android/libs/arm64-v8a/liblocSDK7b.so" target-dir="libs/arm64-v8a" />
-        <source-file src="src/android/libs/armeabi/libindoor.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/liblocSDK7b.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi-v7a/libindoor.so" target-dir="libs/armeabi-v7a" />
-        <source-file src="src/android/libs/armeabi-v7a/liblocSDK7b.so" target-dir="libs/armeabi-v7a" />
-        <source-file src="src/android/libs/x86/libindoor.so" target-dir="libs/x86" />
-        <source-file src="src/android/libs/x86/liblocSDK7b.so" target-dir="libs/x86" />
-        <source-file src="src/android/libs/x86_64/libindoor.so" target-dir="libs/x86_64" />
-        <source-file src="src/android/libs/x86_64/liblocSDK7b.so" target-dir="libs/x86_64" />
-
-        <source-file src="src/android/libs/BaiduLBS_Android.jar" target-dir="libs"/>
-    </platform>
+    <framework src="CoreLocation.framework" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="libsqlite3.0.tbd" />
+    <framework src="CoreTelephony.framework" />
+  </platform>
 </plugin>

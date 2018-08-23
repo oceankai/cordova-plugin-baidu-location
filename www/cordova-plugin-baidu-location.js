@@ -6,4 +6,4 @@ var BaiduLocation = {
     },
 };
 
-module.exports = BaiduLocation;
+module.exports = BaiduLocation
