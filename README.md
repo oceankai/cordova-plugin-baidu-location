@@ -2,8 +2,8 @@
 
 # useage
 
-window.BaiduLocation.location(function (result) {
-  console.log('result: ', result)
- }, function (error) {
-  console.log('error: ', error)
+window.BaiduLocation.location(function (result) {<br> 
+  console.log('result: ', result)<br> 
+ }, function (error) {<br> 
+  console.log('error: ', error)<br> 
 });
