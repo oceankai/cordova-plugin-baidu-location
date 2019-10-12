@@ -1,23 +1,86 @@
 {
-  "name": "cordova-plugin-baidu-location",
-  "version": "0.1.1",
-  "description": "Cordova Baidu location plugin",
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/oceankai/cordova-plugin-baidu-location.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/oceankai/cordova-plugin-baidu-location.git",
+        "spec": "git+https://github.com/oceankai/cordova-plugin-baidu-location.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:oceankai/cordova-plugin-baidu-location.git",
+          "sshUrl": "git+ssh://git@github.com/oceankai/cordova-plugin-baidu-location.git",
+          "httpsUrl": "git+https://github.com/oceankai/cordova-plugin-baidu-location.git",
+          "gitUrl": "git://github.com/oceankai/cordova-plugin-baidu-location.git",
+          "shortcut": "github:oceankai/cordova-plugin-baidu-location",
+          "directUrl": "https://raw.githubusercontent.com/oceankai/cordova-plugin-baidu-location/master/package.json"
+        }
+      },
+      "/Users/imac/Desktop/kaisheng/Android-App-KS/app"
+    ]
+  ],
+  "_from": "git+https://github.com/oceankai/cordova-plugin-baidu-location.git",
+  "_id": "cordova-plugin-baidu-location@0.1.1",
+  "_inCache": true,
+  "_location": "/cordova-plugin-baidu-location",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/oceankai/cordova-plugin-baidu-location.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/oceankai/cordova-plugin-baidu-location.git",
+    "spec": "git+https://github.com/oceankai/cordova-plugin-baidu-location.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:oceankai/cordova-plugin-baidu-location.git",
+      "sshUrl": "git+ssh://git@github.com/oceankai/cordova-plugin-baidu-location.git",
+      "httpsUrl": "git+https://github.com/oceankai/cordova-plugin-baidu-location.git",
+      "gitUrl": "git://github.com/oceankai/cordova-plugin-baidu-location.git",
+      "shortcut": "github:oceankai/cordova-plugin-baidu-location",
+      "directUrl": "https://raw.githubusercontent.com/oceankai/cordova-plugin-baidu-location/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/oceankai/cordova-plugin-baidu-location.git#3402208a2c4dd0a714d9591cf08f8047fdba8f8d",
+  "_shasum": "f13673b851f95e7850c2bb08fe28786584190d23",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/oceankai/cordova-plugin-baidu-location.git",
+  "_where": "/Users/imac/Desktop/kaisheng/Android-App-KS/app",
+  "author": {
+    "name": "happy2discover"
+  },
+  "bugs": {
+    "url": "https://github.com/happy2discover/cordova-plugin-baidu-location/issues"
+  },
   "cordova": {
     "id": "cordova-plugin-baidu-location",
     "platforms": []
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/happy2discover/cordova-plugin-baidu-location.git"
-  },
+  "dependencies": {},
+  "description": "Cordova Baidu location plugin",
+  "devDependencies": {},
+  "gitHead": "3402208a2c4dd0a714d9591cf08f8047fdba8f8d",
+  "homepage": "https://github.com/happy2discover/cordova-plugin-baidu-location#readme",
   "keywords": [
     "ecosystem:cordova",
     "cordova-android"
   ],
-  "author": "happy2discover",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/happy2discover/cordova-plugin-baidu-location/issues"
+  "name": "cordova-plugin-baidu-location",
+  "optionalDependencies": {},
+  "readme": "# cordova-plugin-baidu-location\n\n# install\ncordova plugin add https://github.com/oceankai/cordova-plugin-baidu-location.git --variable AK_ANDROID=your android key --variable IOS_KEY=your ios key\n\n# useage\n\nwindow.BaiduLocation.location(function (result) {<br> \n  console.log('result: ', result)<br> \n }, function (error) {<br> \n  console.log('error: ', error)<br> \n});\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happy2discover/cordova-plugin-baidu-location.git"
   },
-  "homepage": "https://github.com/happy2discover/cordova-plugin-baidu-location#readme"
+  "version": "0.1.1"
 }
