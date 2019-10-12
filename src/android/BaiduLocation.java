@@ -33,7 +33,7 @@ public class BaiduLocation extends CordovaPlugin {
             case BDLocation.TypeServerError:
             case BDLocation.TypeServerDecryptError:
             case BDLocation.TypeServerCheckKeyError:
-                mCallbackContext.error("location error", locType);
+                mCallbackContext.error("location error: " + locType);
                 break;
             default:
                 double latitude = location.getLatitude();                    //获取纬度信息
